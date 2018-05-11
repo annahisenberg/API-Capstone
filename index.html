@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Find an animal shelter</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+</head>
+
+<body>
+    <header role="banner">
+        <h1>Find an animal shelter near you!</h1>
+    </header>
+    <main role="main">
+        <h2>What's your zip code?</h2>
+        <form action="">
+            <input type="text" placeholder="Zip code">
+            <button>Go!</button>
+        </form>
+        <section class="displayResults">
+            <!-- List of results go here -->
+        </section>
+        <section id="map">
+            <!-- Google map goes here -->
+        </section>
+    </main>
+
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbEkT06yRxGSnhfi9b45Ww21HHfdfkBuU&callback=initMap" async
+        defer></script>
+</body>
+
+</html>
