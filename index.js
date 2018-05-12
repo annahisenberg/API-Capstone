@@ -3,7 +3,6 @@ let zipCode;
 let petfinder_URL;
 let longitude;
 let latitude;
-var map;
 
 function clickGo() {
     $('button').click(event => {
@@ -13,7 +12,6 @@ function clickGo() {
         apiRequest();
         //clear text input
         $('input:text').val('');
-        $(initMap);
     });
 }
 
@@ -34,8 +32,7 @@ function apiRequest() {
 function renderResults(obj) {
     const shelterArray = obj.petfinder.shelters.shelter;
     let results = [];
-    longitude = obj.petfinder.shelters.shelter.longitude.$t;
-    latitude = obj.petfinder.shelters.shelter.latitude.$t;
+
 
     for (let i = 0; i < shelterArray.length; i++) {
         results.push(`
@@ -45,16 +42,5 @@ function renderResults(obj) {
     $('.displayResults').html(results);
 }
 
-
-function initMap() {
-    map = new google.maps.Map(document.getElementById('map'), {
-        center: {
-            lat: latitude,
-            lng: longitude
-        },
-        zoom: 8
-    });
-    ('#map').show();
-}
 
 $(clickGo);
