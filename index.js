@@ -4,6 +4,7 @@ let petfinder_URL;
 let longitude;
 let latitude;
 
+
 function clickGo() {
     $('button').click(event => {
         event.preventDefault();
@@ -19,12 +20,10 @@ function apiRequest() {
     $.getJSON(petfinder_URL)
         .done(function (responseData) {
             shelterData = responseData;
+            initMap();
             renderResults(responseData);
-            // console.log(responseData);
         })
-    // .error(function (err) {
-    //     alert('Error retrieving data!');
-    // });
+
 }
 
 
@@ -32,15 +31,6 @@ function apiRequest() {
 function renderResults(obj) {
     const shelterArray = obj.petfinder.shelters.shelter;
     let results = [];
-
-    for (let i = 0; i < shelterArray.length; i++) {
-        console.log(shelterArray[i].longitude.$t);
-    }
-
-    for (let i = 0; i < shelterArray.length; i++) {
-        console.log(shelterArray[i].latitude.$t);
-    }
-
 
     for (let i = 0; i < shelterArray.length; i++) {
         results.push(`
@@ -51,36 +41,55 @@ function renderResults(obj) {
 }
 
 
-var map;
+
 
 function initMap() {
 
-    var location = {
+    let location;
+
+    // Show default location
+    location = {
         lat: 40.659177,
         lng: -73.958434
     };
 
-    // Get all the fetched data 
+    //If the response does not equal undefined, then take the first shelter of the array 
+    //and use it for the map's location
+    if (shelterData) {
+        location = {
+            lat: Number(shelterData.petfinder.shelters.shelter[0].latitude.$t),
+            lng: Number(shelterData.petfinder.shelters.shelter[0].longitude.$t)
+        };
 
-    var map = new google.maps.Map(document.getElementById('map'), {
+    };
+
+    //Load map
+    let map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
         center: location
     });
 
-    function allPlaces(place) {
+    //Adds the initial marker
+    function addsMarkers(place) {
         var marker = new google.maps.Marker({
             position: place,
             map: map
         });
     }
 
+    addsMarkers(location);
 
-    // Here we will call all the locations using a loop
-    allPlaces(location);
+    if (shelterData) {
+        for (let i = 0; i < shelterData.petfinder.shelters.shelter.length; i++) {
+            location.lat = Number(shelterData.petfinder.shelters.shelter[i].latitude.$t);
+            location.lng = Number(shelterData.petfinder.shelters.shelter[i].longitude.$t);
+            console.log(location);
+            addsMarkers(location);
+        }
 
+    }
 }
 
-// initMap();
 
 
 $(clickGo);
