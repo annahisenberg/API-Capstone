@@ -12,25 +12,29 @@
 </head>
 
 <body>
-    <header role="banner">
-        <h1>Find an animal shelter near you!</h1>
-    </header>
-    <main role="main">
-        <h2>What's your zip code?</h2>
-        <form action="">
-            <input type="text" placeholder="Zip code">
-            <button>Go!</button>
-        </form>
-        <section class="displayResults">
-            <!-- List of results go here -->
-        </section>
-        <section id="map">
-            <!-- Google map goes here -->
-        </section>
-    </main>
+    <div>
+        <header role="banner">
+            <h1>Find an animal shelter near you!</h1>
+        </header>
+        <main role="main" class="grid-container">
+            <section class="grid-item">
+                <h2 class="grid-item">What's your zip code?</h2>
+                <form action="">
+                    <input type="text" placeholder="Zip code">
+                    <button>Go!</button>
+                </form>
+            </section>
+            <section class="displayResults grid-item">
+                <!-- List of results go here -->
+            </section>
+            <section id="map" class="grid-item">
+                <!-- Google map goes here -->
+            </section>
+        </main>
+    </div>
 
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbEkT06yRxGSnhfi9b45Ww21HHfdfkBuU&callback=initMap" async
-        defer></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbEkT06yRxGSnhfi9b45Ww21HHfdfkBuU&libraries=places&callback=initMap"
+        async defer></script>
 </body>
 
 

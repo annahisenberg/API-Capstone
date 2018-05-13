@@ -70,12 +70,22 @@ function initMap() {
     });
 
     //Adds the initial marker
-    function addsMarkers(place) {
+    function addsMarkers(place, shelterName) {
+        var contentString = shelterName;
+
+        var infowindow = new google.maps.InfoWindow({
+            content: contentString
+        });
+
         var marker = new google.maps.Marker({
             position: place,
             map: map
         });
+        marker.addListener('click', function () {
+            infowindow.open(map, marker)
+        });
     }
+
 
     addsMarkers(location);
 
@@ -83,8 +93,9 @@ function initMap() {
         for (let i = 0; i < shelterData.petfinder.shelters.shelter.length; i++) {
             location.lat = Number(shelterData.petfinder.shelters.shelter[i].latitude.$t);
             location.lng = Number(shelterData.petfinder.shelters.shelter[i].longitude.$t);
-            console.log(location);
-            addsMarkers(location);
+            shelterN = shelterData.petfinder.shelters.shelter[i].name.$t
+            console.log(location, shelterN);
+            addsMarkers(location, shelterN);
         }
 
     }

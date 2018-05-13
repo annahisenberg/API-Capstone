@@ -2,3 +2,8 @@
     width: 600px;
     height: 600px;
 }
+
+.grid-container {
+    display: inline-grid;
+    grid-template-columns: 1fr 1fr 1fr;
+}
