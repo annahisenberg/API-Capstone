@@ -9,7 +9,7 @@ function clickGo() {
     $('button').click(event => {
         event.preventDefault();
         zipCode = $('input').val();
-        petfinder_URL = `http://api.petfinder.com/shelter.find?format=json&key=705081f265b2ea3051d728969b1eccfd&animal=cat&location=${zipCode}&output=basic&callback=?`;
+        petfinder_URL = `https://api.petfinder.com/shelter.find?format=json&key=705081f265b2ea3051d728969b1eccfd&animal=cat&location=${zipCode}&output=basic&callback=?`;
         apiRequest();
         //clear text input
         $('input:text').val('');
