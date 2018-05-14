@@ -1,9 +1,18 @@
 #map {
-    width: 600px;
+    width: 1000px;
     height: 600px;
 }
 
 .grid-container {
-    display: inline-grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+header h1 {
+    text-align: center;
 }

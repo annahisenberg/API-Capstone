@@ -1,9 +1,7 @@
 let shelterData;
 let zipCode;
 let petfinder_URL;
-let longitude;
-let latitude;
-
+let getAddressURL;
 
 function clickGo() {
     $('button').click(event => {
@@ -16,9 +14,11 @@ function clickGo() {
     });
 }
 
+//
 function apiRequest() {
     $.getJSON(petfinder_URL)
         .done(function (responseData) {
+            console.log(responseData);
             shelterData = responseData;
             initMap();
             renderResults(responseData);
@@ -27,14 +27,14 @@ function apiRequest() {
 }
 
 
-
+//Render list of shelters
 function renderResults(obj) {
     const shelterArray = obj.petfinder.shelters.shelter;
     let results = [];
 
     for (let i = 0; i < shelterArray.length; i++) {
         results.push(`
-        <p>${shelterArray[i].name.$t}</p>
+        <p>${i}. ${shelterArray[i].name.$t}</p>
         `);
     }
     $('.displayResults').html(results);
@@ -47,13 +47,13 @@ function initMap() {
 
     let location;
 
-    // Show default location
+    // Show default location when page opens
     location = {
         lat: 40.659177,
         lng: -73.958434
     };
 
-    //If the response does not equal undefined, then take the first shelter of the array 
+    //If there is shelterData after api call, then take the first shelter of the array 
     //and use it for the map's location
     if (shelterData) {
         location = {
@@ -69,38 +69,48 @@ function initMap() {
         center: location
     });
 
-    //Adds the initial marker
+
+    //This function adds the initial marker to the map
     function addsMarkers(place, shelterName) {
         var contentString = shelterName;
 
         var infowindow = new google.maps.InfoWindow({
-            content: contentString
+            content: contentString //This is what will be displayed in the infowindow
         });
 
         var marker = new google.maps.Marker({
             position: place,
             map: map
         });
+
+        //Adds the popup infowindow when marker is clicked on
         marker.addListener('click', function () {
             infowindow.open(map, marker)
         });
     }
-
-
+    //Call this function to add the first marker to the map
     addsMarkers(location);
 
+
+    //Loops through the response and gathers longitude, latitude, and name of each shelter and then adds markers to all
     if (shelterData) {
         for (let i = 0; i < shelterData.petfinder.shelters.shelter.length; i++) {
             location.lat = Number(shelterData.petfinder.shelters.shelter[i].latitude.$t);
             location.lng = Number(shelterData.petfinder.shelters.shelter[i].longitude.$t);
             shelterN = shelterData.petfinder.shelters.shelter[i].name.$t
-            console.log(location, shelterN);
             addsMarkers(location, shelterN);
         }
 
     }
-}
 
+    //This is the API URL to get the address from the lat and lng (reverse geocoding)
+    getAddressURL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=AIzaSyDbEkT06yRxGSnhfi9b45Ww21HHfdfkBuU`;
+
+    $.getJSON(getAddressURL)
+        .done(function (data) {
+            console.log(data);
+        })
+}
 
 
 $(clickGo);
