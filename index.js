@@ -1,21 +1,20 @@
 let shelterData;
 let zipCode;
 let petfinder_URL;
-let getAddressURL;
 
 function clickGo() {
     $('button').click(event => {
         event.preventDefault();
         zipCode = $('input').val();
         petfinder_URL = `https://api.petfinder.com/shelter.find?format=json&key=705081f265b2ea3051d728969b1eccfd&animal=cat&location=${zipCode}&output=basic&callback=?`;
-        apiRequest();
+        petfinderApiRequest();
         //clear text input
         $('input:text').val('');
     });
 }
 
 //
-function apiRequest() {
+function petfinderApiRequest() {
     $.getJSON(petfinder_URL)
         .done(function (responseData) {
             console.log(responseData);
@@ -33,11 +32,18 @@ function renderResults(obj) {
     let results = [];
 
     for (let i = 0; i < shelterArray.length; i++) {
+        let shelterName = `${i + 1}. ${shelterArray[i].name.$t}`;
+
         results.push(`
-        <p>${i}. ${shelterArray[i].name.$t}</p>
+        <div class="shelter-list-item">
+            <h3>${shelterName}</h3>
+            <p id="${shelterArray[i].id.$t}"></p>
+        </div>
         `);
     }
-    $('.displayResults').html(results);
+
+    $('.displayResults').html('<h2>Here are the shelters closest to you:</h2>' + results);
+    loadShelterAddresses(obj);
 }
 
 
@@ -103,13 +109,27 @@ function initMap() {
 
     }
 
-    //This is the API URL to get the address from the lat and lng (reverse geocoding)
-    getAddressURL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${location.lat},${location.lng}&key=AIzaSyDbEkT06yRxGSnhfi9b45Ww21HHfdfkBuU`;
+}
 
-    $.getJSON(getAddressURL)
-        .done(function (data) {
-            console.log(data);
-        })
+function loadShelterAddresses(obj) {
+
+    const shelterArray = obj.petfinder.shelters.shelter;
+
+    for (let i = 0; i < shelterArray.length; i++) {
+        let shelterID = shelterArray[i].id.$t;
+        let lat = Number(shelterArray[i].latitude.$t);
+        let lng = Number(shelterArray[i].longitude.$t);
+
+        //This is the API URL to get the address from the lat and lng (reverse geocoding)
+        let getAddressURL = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${lat},${lng}&key=AIzaSyDbEkT06yRxGSnhfi9b45Ww21HHfdfkBuU`;
+
+
+        $.getJSON(getAddressURL)
+            .done(function (data) {
+                console.log(data);
+                $(`#${shelterID}`).html(data.results[0].formatted_address);
+            })
+    }
 }
 
 
