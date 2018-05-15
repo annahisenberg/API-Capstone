@@ -13,8 +13,12 @@ body {
 }
 
 body {
-    /* font-family: 'Montserrat', sans-serif; */
-    font-family: 'Kavivanar', cursive;
+    font-family: 'Poiret One', cursive;
+}
+
+.heading {
+    font-size: 40px;
+    letter-spacing: 1px;
 }
 
 main {
@@ -23,6 +27,7 @@ main {
     -moz-background-size: cover;
     -o-background-size: cover;
     background-size: cover;
+    /* filter: grayscale(100%); */
     height: 100%;
     margin-top: 0px;
 }
@@ -41,7 +46,7 @@ header h1 {
 
 .shelter-list-item {
     margin: 10px;
-    border: 1px solid black;
+    border: 1px dotted #ff6e6e;
     padding: 5px;
     background: rgba(255, 255, 255, 0.5);
 }
@@ -53,4 +58,70 @@ h2 {
 
 h3 p {
     margin-top: 5px;
+}
+
+.fa-paw {
+    margin: 10px;
+    color: #922828;
+    postion: relative;
+    animation-name: myanimation;
+    animation-duration: 2s;
+    font-size: 30px;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in;
+}
+
+@keyframes myanimation {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(30deg);
+    }
+    50% {
+        transform: rotate(0deg)
+    }
+    75% {
+        transform: rotate(-30deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+input {
+    outline: 4px dotted #ff6e6e;
+    font-size: 15px;
+    color: #ff4a4a;
+    font-family: Arial, Helvetica, sans-serif;
+    letter-spacing: 1px;
+}
+
+button {
+    margin-left: 5px;
+    padding: 5px;
+    border-radius: 2px;
+    outline: none;
+    background: #ff6e6e;
+    color: white;
+    transition: all 0.3s ease;
+    width: 50px;
+    font-size: 15px;
+}
+
+button:hover {
+    cursor: pointer;
+    background: white;
+    color: #ff6e6e;
+    border: 1px solid #ff6e6e;
+    transform: scale(0.9);
+    border-radius: 4px;
+}
+
+button:active {
+    top: 4px;
+}
+
+input::placeholder {
+    color: lightpink;
 }
