@@ -10,7 +10,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Poiret+One|Roboto:400,700" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </head>
@@ -27,16 +27,18 @@
         <!-- Google map goes here -->
     </section>
     <main role="main">
-        <section>
-            <h2>What's your zip code?</h2>
-            <form action="">
-                <input type="text" placeholder="Zip code" required>
-                <button>Go!</button>
-            </form>
-        </section>
-        <section class="displayResults">
-            <!-- List of results go here -->
-        </section>
+        <div class="content">
+            <section>
+                <h2>What's your zip code?</h2>
+                <form action="">
+                    <input type="text" placeholder="Zip code" required>
+                    <button>Go!</button>
+                </form>
+            </section>
+            <section class="displayResults">
+                <!-- List of results go here -->
+            </section>
+        </div>
     </main>
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbEkT06yRxGSnhfi9b45Ww21HHfdfkBuU&libraries=places&callback=initMap"

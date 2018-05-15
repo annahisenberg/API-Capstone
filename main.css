@@ -22,7 +22,7 @@ body {
 }
 
 main {
-    background: url('https://images.pexels.com/photos/256632/pexels-photo-256632.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center center fixed;
+    background: url('https://images.pexels.com/photos/745241/pexels-photo-745241.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -46,9 +46,16 @@ header h1 {
 
 .shelter-list-item {
     margin: 10px;
-    border: 1px dotted #ff6e6e;
+    border: 2px solid #fa6363;
     padding: 5px;
-    background: rgba(255, 255, 255, 0.5);
+    background: rgba(255, 110, 110, 0.6);
+    font-family: 'Roboto', sans-serif;
+    color: white;
+}
+
+.shelter-list-item h3 {
+    letter-spacing: 2px;
+    font-weight: 400;
 }
 
 h2 {
@@ -58,17 +65,18 @@ h2 {
 
 h3 p {
     margin-top: 5px;
+    /* font-weight: 700; */
 }
 
 .fa-paw {
     margin: 10px;
-    color: #922828;
+    color: rgba(0, 0, 0, 0.836);
     postion: relative;
     animation-name: myanimation;
     animation-duration: 2s;
     font-size: 30px;
     animation-iteration-count: infinite;
-    animation-timing-function: ease-in;
+    animation-timing-function: linear;
 }
 
 @keyframes myanimation {
