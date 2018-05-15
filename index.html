@@ -8,26 +8,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Kavivanar" rel="stylesheet">
     <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
     <script src="index.js"></script>
 </head>
 
 <body>
     <header role="banner">
-        <h1>Find an animal shelter near you!</h1>
+        <h1>
+            <i class="fas fa-paw"></i>
+            Find an animal shelter near you
+            <i class="fas fa-paw"></i>
+        </h1>
     </header>
     <section id="map">
         <!-- Google map goes here -->
     </section>
-    <main role="main" class="grid-container">
-        <section class="grid-item">
-            <h2 class="grid-item">What's your zip code?</h2>
+    <main role="main">
+        <section>
+            <h2>What's your zip code?</h2>
             <form action="">
                 <input type="text" placeholder="Zip code">
                 <button>Go!</button>
             </form>
         </section>
-        <section class="displayResults grid-item">
+        <section class="displayResults">
             <!-- List of results go here -->
         </section>
     </main>
