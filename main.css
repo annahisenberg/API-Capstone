@@ -84,7 +84,6 @@ h2 {
 
 h3 p {
     margin-top: 5px;
-    /* font-weight: 700; */
 }
 
 .fa-paw {
@@ -173,4 +172,8 @@ input::placeholder {
     100% {
         opacity: 1;
     }
+}
+
+.content:first-child {
+    background-color: rgba(255, 255, 255, 0.5);
 }

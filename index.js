@@ -1,6 +1,7 @@
 let shelterData;
 let zipCode;
 let petfinder_URL;
+let shelterAddress;
 
 function clickGo() {
     $('button').click(event => {
@@ -13,7 +14,7 @@ function clickGo() {
     });
 }
 
-//
+
 function petfinderApiRequest() {
     $.getJSON(petfinder_URL)
         .done(function (responseData) {
@@ -126,7 +127,6 @@ function loadShelterAddresses(obj) {
 
         $.getJSON(getAddressURL)
             .done(function (data) {
-                console.log(data);
                 $(`#${shelterID}`).html(data.results[0].formatted_address);
             })
     }
