@@ -7,10 +7,29 @@ function clickGo() {
     $('button').click(event => {
         event.preventDefault();
         zipCode = $('input').val();
-        petfinder_URL = `https://api.petfinder.com/shelter.find?format=json&key=705081f265b2ea3051d728969b1eccfd&animal=cat&location=${zipCode}&output=basic&callback=?`;
-        petfinderApiRequest();
-        //clear text input
-        $('input:text').val('');
+
+        if (zipCode.length > 5 || zipCode.length < 5) {
+            $('.invalid').html(`<p>Invalid zip code.</p>`);
+            $('input:text').addClass('invalid-input');
+            $('input:text').val('');
+        }
+
+        if (zipCode.length === 5) {
+            $('.invalid').empty();
+
+            petfinder_URL = `https://api.petfinder.com/shelter.find?format=json&key=705081f265b2ea3051d728969b1eccfd&animal=cat&location=${zipCode}&output=basic&callback=?`;
+            petfinderApiRequest();
+            //clear text input
+            $('input:text').val('');
+        }
+
+
+    });
+}
+
+function createAnimationendListener() {
+    $('html').on('animationend webkitAnimationEnd oAnimationEnd', (e) => {
+        $('input:text').removeClass('invalid-input');
     });
 }
 
@@ -134,3 +153,4 @@ function loadShelterAddresses(obj) {
 
 
 $(clickGo);
+$(createAnimationendListener);

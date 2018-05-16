@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Find an animal shelter</title>
+    <title>Animal Shelter Finder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
@@ -28,11 +28,14 @@
     </section>
     <main role="main">
         <div class="content">
-            <section class="h2-and-form">
+            <section>
                 <h2>What's your zip code?</h2>
                 <form action="">
                     <input type="text" placeholder="Zip code" required>
                     <button>Go!</button>
+                    <div class="invalid">
+                        <!-- Error: Invalid zip code goes here  -->
+                    </div>
                 </form>
             </section>
             <section class="displayResults">
@@ -40,6 +43,7 @@
             </section>
         </div>
     </main>
+
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDbEkT06yRxGSnhfi9b45Ww21HHfdfkBuU&libraries=places&callback=initMap"
         async defer></script>
