@@ -1,10 +1,6 @@
-<<<<<<< HEAD
-# API-Capstone
-API capstone project for Thinkful
-=======
-# API-Capstone project for Thinkful - Animal Shelter Finder
+# API Capstone Project for Thinkful - Animal Shelter Finder
 
-## Link to live version: [Live version](https://annahisenberg.github.io/API-Capstone/)
+## [Link to live version](https://annahisenberg.github.io/API-Capstone/)
 
 ## Screenshots:
 ![1.](https://github.com/annahisenberg/API-Capstone/blob/master/ScreenshotApiProject.png)
