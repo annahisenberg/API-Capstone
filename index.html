@@ -7,7 +7,6 @@
     <title>Animal Shelter Finder</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Poiret+One|Roboto:400,700" rel="stylesheet">
@@ -23,7 +22,7 @@
             <i class="fas fa-paw"></i>
         </h1>
     </header>
-    <section id="map">
+    <section id="map" aria-live="polite">
         <!-- Google map goes here -->
     </section>
     <main role="main">
@@ -33,12 +32,12 @@
                 <form action="">
                     <input type="text" placeholder="Zip code" required>
                     <button>Go!</button>
-                    <div class="invalid">
+                    <div class="invalid" aria-live="polite">
                         <!-- Error: Invalid zip code goes here  -->
                     </div>
                 </form>
             </section>
-            <section class="displayResults">
+            <section class="displayResults" aria-live="polite">
                 <!-- List of results go here -->
             </section>
         </div>

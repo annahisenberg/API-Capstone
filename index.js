@@ -37,7 +37,6 @@ function createAnimationendListener() {
 function petfinderApiRequest() {
     $.getJSON(petfinder_URL)
         .done(function (responseData) {
-            console.log(responseData);
             shelterData = responseData;
             initMap();
             renderResults(responseData);
