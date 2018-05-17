@@ -3,8 +3,8 @@
 ## Link to live version: [Live version](https://annahisenberg.github.io/API-Capstone/)
 
 ## Screenshots:
-
-![Image of webpage](https://github.com/annahisenberg/API-Capstone/blob/master/screenschot2APIProject.png)
+![1.](https://github.com/annahisenberg/API-Capstone/blob/master/ScreenshotApiProject.png)
+![2.](https://github.com/annahisenberg/API-Capstone/blob/master/screenschot2APIProject.png)
 
 
 
