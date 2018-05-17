@@ -4,8 +4,7 @@
 
 ## Screenshots:
 
-![Image of webpage]
-(https://imgur.com/a/XkSv4pI)
+![Image of webpage](https://github.com/annahisenberg/API-Capstone/blob/master/screenschot2APIProject.png)
 
 
 
