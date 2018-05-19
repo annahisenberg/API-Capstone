@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-# API-Capstone
-API capstone project for Thinkful
-=======
 # API-Capstone project for Thinkful - Animal Shelter Finder
 
 ## Link to live version: [Live version](https://annahisenberg.github.io/API-Capstone/)
@@ -19,4 +15,3 @@ where the animal shelters are located and click on the markers to display an inf
 
 ## Technologies used:
 HTML/CSS/JavaScript/jQuery
->>>>>>> 388e58cc7845ec31f8cda8754e3cc47cf5d05bbc
