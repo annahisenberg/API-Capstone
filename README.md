@@ -1,6 +1,6 @@
 # API-Capstone project for Thinkful - Animal Shelter Finder
 
-## Link to live version: [Live version](https://annahisenberg.github.io/API-Capstone/)
+## Link to live version: [Live version](https://annahisenberg.github.io/Animal-shelter-finder/)
 
 ## Screenshots:
 ![1.](https://github.com/annahisenberg/API-Capstone/blob/master/ScreenshotApiProject.png)
