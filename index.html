@@ -22,22 +22,22 @@
             <i class="fas fa-paw"></i>
         </h1>
     </header>
-    <section id="map" aria-live="polite">
+    <section id="map" aria-live="polite" role="contentinfo">
         <!-- Google map goes here -->
     </section>
     <main role="main">
         <div class="content">
-            <section>
+            <section role="contentinfo">
                 <h2>What's your zip code?</h2>
                 <form action="">
-                    <input type="text" placeholder="Zip code" required>
+                    <input type="text" placeholder="Zip code" maxlength="5" required>
                     <button>Go!</button>
                     <div class="invalid" aria-live="polite">
                         <!-- Error: Invalid zip code goes here  -->
                     </div>
                 </form>
             </section>
-            <section class="displayResults" aria-live="polite">
+            <section class="displayResults" aria-live="polite" role="contentinfo">
                 <!-- List of results go here -->
             </section>
         </div>
